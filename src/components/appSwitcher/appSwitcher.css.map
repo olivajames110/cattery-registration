@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,uBAAuB,CAAC;EAEvB,OAAO,EAAE,YAAY;EACrB,MAAM,EAAE,MAAM;CACd;;AAED,AAAA,qBAAqB,CAAC;EAIrB,gBAAgB,EAAE,SAAS;EAC3B,OAAO,EAAE,SAAS;EAClB,OAAO,EAAE,YAAY;CACrB",
     "sources": [
         "appSwitcher.scss"
     ],

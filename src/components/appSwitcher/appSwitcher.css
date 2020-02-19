@@ -1,1 +1,11 @@
-/* No CSS *//*# sourceMappingURL=appSwitcher.css.map */
+.app-switcher-container {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.app-switcher-wrapper {
+  background-color: royalblue;
+  padding: 24px 40px;
+  display: inline-block;
+}
+/*# sourceMappingURL=appSwitcher.css.map */

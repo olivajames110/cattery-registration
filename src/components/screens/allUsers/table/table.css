@@ -1,0 +1,32 @@
+.table-container {
+  background-color: #eeeeee;
+  margin: 30px;
+}
+
+.table-row-header {
+  font-weight: bold;
+  background-color: #cfd9e6;
+}
+
+.table-row-wrapper,
+.table-row-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40% 1fr 1fr 1fr 1fr;
+      grid-template-columns: 40% 1fr 1fr 1fr 1fr;
+  padding: 12px 15px;
+}
+
+.table-item-cell {
+  text-align: left;
+}
+
+.table-row-wrapper:nth-of-type(even) {
+  background-color: #f8f8f8;
+}
+
+.table-row-wrapper #pdf {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/*# sourceMappingURL=table.css.map */
