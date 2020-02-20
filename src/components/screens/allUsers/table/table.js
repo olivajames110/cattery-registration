@@ -24,7 +24,7 @@ const Table = (props) => {
 
 	let tableRow = (user) => {
 		return (
-			<div className="table-row-wrapper">
+			<div key={user.name} className="table-row-wrapper">
 				<span class="table-item-cell" id="name">
 					{user.name}
 				</span>

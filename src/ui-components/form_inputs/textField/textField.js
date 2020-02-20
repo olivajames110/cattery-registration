@@ -1,14 +1,14 @@
-import React from "react";
-import "./textField.css";
-import "../sharedInputsCss/sharedInputs.css";
+import React from 'react';
+import './textField.css';
+import '../sharedInputsCss/sharedInputs.css';
 
-const TextFieldInput = props => {
-    return (
-        <div className="input-container">
-            <label>{props.label}</label>
-            <input onChange={props.onChange} style={props.style} id={props.id} className={props.class} type={props.type} value={props.value} placeholder={props.placeholder} />
-        </div>
-    );
+const TextFieldInput = ({ label, id, style, onChange, className, value }) => {
+	return (
+		<div className="input-container">
+			<label htmlFor={id}>{label}</label>
+			<input onChange={onChange} style={style} id={id} className={className} type="text" value={value} />
+		</div>
+	);
 };
 
 export default TextFieldInput;

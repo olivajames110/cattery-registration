@@ -1,1 +1,14 @@
-/* No CSS *//*# sourceMappingURL=checkbox.css.map */
+.checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkbox-input {
+  width: 40px !important;
+}
+
+.checkbox-label {
+  font-weight: normal !important;
+}
+/*# sourceMappingURL=checkbox.css.map */

@@ -6,7 +6,7 @@ import AppSwitcher from './components/appSwitcher/appSwitcher';
 import './App.css';
 
 function App() {
-	let [ screen, setScreen ] = useState('for');
+	let [ screen, setScreen ] = useState('form');
 
 	return (
 		<div className="App">

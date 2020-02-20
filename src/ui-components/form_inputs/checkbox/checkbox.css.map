@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,mBAAmB,CAAC;EACnB,OAAO,EAAE,IAAI;CACb;;AAED,AAAA,eAAe,CAAC;EACf,KAAK,EAAE,eAAe;CACtB;;AAED,AAAA,eAAe,CAAC;EACf,WAAW,EAAE,iBAAiB;CAC9B",
     "sources": [
         "checkbox.scss"
     ],

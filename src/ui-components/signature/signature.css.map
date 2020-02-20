@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,+BAA+B,CAAC;EAC/B,gBAAgB,EAAE,KAAK;CACvB;;AAED,AAAA,0BAA0B,CAAC;EAC1B,UAAU,EAAE,cAAc;EAC1B,KAAK,EAAE,IAAI;CACX",
     "sources": [
         "signature.scss"
     ],

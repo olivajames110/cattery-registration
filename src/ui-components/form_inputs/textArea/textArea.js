@@ -1,15 +1,15 @@
-import React from "react";
-import "./textArea.css";
-import "../sharedInputsCss/sharedInputs.css";
+import React from 'react';
+import './textArea.css';
+import '../sharedInputsCss/sharedInputs.css';
 
-const TextAreaInput = props => {
-    return (
-        <div className="input-container">
-            <label htmlFor="">
-                Description <textarea id="description" />
-            </label>
-        </div>
-    );
+const TextAreaInput = ({ className, label, id }) => {
+	return (
+		<div className={`input-container ${className}`}>
+			<label htmlFor={`${label}`}>
+				{`${label}`} <textarea id={`${id}`} />
+			</label>
+		</div>
+	);
 };
 
 export default TextAreaInput;
