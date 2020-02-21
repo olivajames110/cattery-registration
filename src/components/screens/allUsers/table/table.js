@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import './table.css';
 
 const Table = (props) => {
+	let date = new Date().getDay();
 	let tableHeader = (
 		<div className="table-row-header">
 			<span class="table-item-cell" id="name">
@@ -26,13 +27,14 @@ const Table = (props) => {
 		return (
 			<div key={user.name} className="table-row-wrapper">
 				<span class="table-item-cell" id="name">
-					{user.name}
+					<span id="first-name"> {user.firstName}</span>
+					<span id="first-name"> {user.lastName}</span>
 				</span>
 				<span class="table-item-cell" id="number-of-minors">
-					3
+					{user.dataUrl}
 				</span>
 				<span class="table-item-cell" id="date-signed">
-					12/20/20
+					{date}
 				</span>
 				<span class="table-item-cell" id="waiver-type">
 					Cattery

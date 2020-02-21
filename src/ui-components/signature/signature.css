@@ -1,9 +1,47 @@
 .electronic-signature-container {
   background-color: white;
+  margin-top: 10px;
 }
 
 .additional-text-container {
-  border-top: 1px solid gray;
-  width: 100%;
+  border-top: 1px solid #d6d6d6;
+  width: 90%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.additional-text-container:after, .additional-text-container:before {
+  content: ' ';
+  position: absolute;
+  bottom: 50px;
+  left: 25px;
+  height: 33px;
+  width: 2px;
+  background-color: #a5a5a5;
+}
+
+.additional-text-container:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.additional-text-container:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.additional-text-container button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: #a5a5a5;
+  padding: 10px;
 }
 /*# sourceMappingURL=signature.css.map */

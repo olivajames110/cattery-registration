@@ -7,7 +7,7 @@ const AllUsersScreen = (props) => {
 
 	const getUsers = async () => {
 		// e.preventDefault();
-		const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+		const res = await axios.get('http://localhost:5000/all-users');
 		console.dir(res.data);
 		setUsers(res.data);
 	};

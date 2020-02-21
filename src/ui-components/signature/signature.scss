@@ -1,8 +1,37 @@
 .electronic-signature-container {
 	background-color: white;
+	margin-top: 10px;
 }
 
 .additional-text-container {
-	border-top: 1px solid gray;
-	width: 100%;
+	border-top: 1px solid #d6d6d6;
+	width: 90%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	&:after,
+	&:before {
+		content: ' ';
+		position: absolute;
+		bottom: 50px;
+		left: 25px;
+		height: 33px;
+		width: 2px;
+		background-color: #a5a5a5;
+	}
+	&:before {
+		transform: rotate(45deg);
+	}
+	&:after {
+		transform: rotate(-45deg);
+	}
+
+	button {
+		border: none;
+		background-color: rgba(0, 0, 0, 0);
+		color: #a5a5a5;
+		padding: 10px;
+	}
 }
