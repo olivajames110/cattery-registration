@@ -13,10 +13,17 @@ const AddUserscreen = (props) => {
 	let [ lastName, setLastName ] = useState('');
 	const [ dataUrl, setDataUrl ] = useState('');
 	const user = {
-		firstName : firstName,
-		lastName  : lastName,
-		dataUrl   : dataUrl
+		name : 'sample',
+		price  : 1
 	};
+
+
+	// const user = {
+	// 	firstName : firstName,
+	// 	lastName  : lastName,
+	// 	dataUrl   : dataUrl
+	// };
+
 	let ENDPOINT = 'http://localhost:5000/add-user';
 	// const ENDPOINT = 'localhost:5000/add-user';
 
