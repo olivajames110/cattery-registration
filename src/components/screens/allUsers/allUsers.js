@@ -12,6 +12,15 @@ const AllUsersScreen = (props) => {
 		setUsers(res.data);
 	};
 
+	const deleteUser = async (id) => {
+		// e.preventDefault();
+		console.dir('delete user run');
+		const res = await axios.get('http://localhost:5000/delete-user' , id);
+		setUsers(res.data);
+	};
+
+
+
 	useEffect(() => {
 		getUsers();
 	}, []);
@@ -19,7 +28,7 @@ const AllUsersScreen = (props) => {
 	return (
 		<div className="all-users-container">
 			<h1>All Users</h1>
-			<Table users={users} />
+			<Table deleteUser={deleteUser} users={users} />
 		</div>
 	);
 };

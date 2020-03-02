@@ -27,16 +27,21 @@ const ElectronicSignature = (props) => {
 	let createImage = (e) => {
 		e.preventDefault();
 		let url = sigCanvas.toDataURL();
+		console.log(url);
 		props.updateUrl(url);
 		// setDataUrl(url);
-		// console.log(url);
 	};
+
+	let updateUrl = () => {
+
+	}
 
 	return (
 		<div className="input-container">
 			<label>Signature</label>
-			<div ref={containerRef} className="electronic-signature-container">
+			<div ref={containerRef} onClick className="electronic-signature-container">
 				<SignatureCanvas
+				onEnd={createImage}
 					ref={(ref) => (sigCanvas = ref)}
 					penColor="#616c70"
 					canvasProps={{ width: containerWidth, height: 200, className: 'sigCanvas' }}
