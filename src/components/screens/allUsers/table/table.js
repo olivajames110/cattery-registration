@@ -28,7 +28,7 @@ const Table = (props) => {
 			<div key={user.name} className="table-row-wrapper">
 				<span class="table-item-cell" id="name">
 					<span id="first-name"> {user.firstName}</span>
-					<span id="first-name"> {user.id}</span>
+					<span id="first-name"> {user._id}</span>
 				</span>
 				<span class="table-item-cell" id="number-of-minors">
 				  <img src={user.dataUrl} width='80px' height='30'/>
@@ -39,7 +39,7 @@ const Table = (props) => {
 				<span class="table-item-cell" id="waiver-type">
 					Cattery
 				</span>
-				<span onClick={()=>props.deleteUser(user.id)} class="table-item-cell" id="pdf">
+				<span onClick={()=>props.deleteUser(user._id)} class="table-item-cell" id="pdf">
 					Delete
 				</span>
 			</div>

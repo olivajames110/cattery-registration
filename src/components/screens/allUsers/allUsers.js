@@ -14,8 +14,8 @@ const AllUsersScreen = (props) => {
 
 	const deleteUser = async (id) => {
 		// e.preventDefault();
-		console.dir('delete user run');
-		const res = await axios.get('http://localhost:5000/delete-user' , id);
+		console.dir(id);
+		axios.delete(`http://localhost:5000/delete-user` , id);
 		setUsers(res.data);
 	};
 
