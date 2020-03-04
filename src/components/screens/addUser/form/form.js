@@ -10,13 +10,13 @@ import './form.css';
 
 const AddUserscreen = (props) => {
 	let userD = {
-		firstName : '',
-		lastName  : '',
-		dataUrl   : '',
-		dob_year  : '',
-		dob_month : '',
-		dob_day   : '',
-		email     : ''
+		firstName : 't',
+		lastName  : 't',
+		dataUrl   : 'tr',
+		dob_year  : 't',
+		dob_month : 't',
+		dob_day   : 't',
+		email     : 't'
 	};
 	let [ user, setUser ] = useState(userD);
 	// let [ firstName, setFirstName ] = useState('');
