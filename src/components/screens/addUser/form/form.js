@@ -6,6 +6,8 @@ import TextAreaInput from '../../../../ui-components/form_inputs/textArea/textAr
 import CheckboxInput from '../../../../ui-components/form_inputs/checkbox/checkbox';
 import DobPicker from '../../../../ui-components/form_inputs/dobPicker/dobPicker';
 import ElectronicSignature from '../../../../ui-components/signature/signature';
+import Minor from './minor/minor';
+import Disclaimer from './disclaimer/disclaimer';
 import './form.css';
 
 const AddUserscreen = (props) => {
@@ -19,32 +21,18 @@ const AddUserscreen = (props) => {
 		email     : 't'
 	};
 	let [ user, setUser ] = useState(userD);
-	// let [ firstName, setFirstName ] = useState('');
+	let [ hasMinors, setHasMinors ] = useState(false);
 	// let [ lastName, setLastName ] = useState('');
 	// const [ dob_year, setDob_year ] = useState('');
 	// const [ dob_month, setDob_month ] = useState('');
 	// const [ dob_day, setDob_day ] = useState('');
 	// const [ email, setEmail ] = useState('');
 	const [ dataUrl, setDataUrl ] = useState('');
-	// const user = {
-	// 	name : 'sample',
-	// 	price  : 1
-	// };
 
 	let ENDPOINT = 'http://localhost:5000/add-user';
-	// const ENDPOINT = 'localhost:5000/add-user';
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// let user = {
-		// 	firstName : firstName,
-		// 	lastName  : lastName,
-		// 	dataUrl   : dataUrl,
-		// 	dob_year  : dob_year,
-		// 	dob_month : dob_month,
-		// 	dob_day   : dob_day,
-		// 	email     : email
-		// };
 		console.log(user);
 		axios.post(ENDPOINT, user).then((res) => {
 			const newPerson = res.data;
@@ -60,17 +48,9 @@ const AddUserscreen = (props) => {
 			dob_day   : '',
 			email     : ''
 		});
-		// const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-		// console.log(res);
 	};
 
 	let updateUser = (key, value) => {
-		// let key = key;
-		// let value = value;
-		// setUser((prev) => ({
-		// 	...prev,
-		// 	[key] : value
-		// }));
 		let k = key;
 		let v = value;
 		let updatedUser = {
@@ -86,54 +66,92 @@ const AddUserscreen = (props) => {
 		console.log('update url');
 	};
 
-	// useEffect(() => {
-	// 	handleSubmit();
-	// }, []);
+	let addMinor = () => {};
+
+	let minorContainer = (
+		<div className="form-section">
+			<h3 className="form-section-title">Minors</h3>
+			<Minor onChange={updateUser} />
+
+			<div className="add-minor-container">
+				<div className="add-minor-btn">Add Additional Minor +</div>
+			</div>
+		</div>
+	);
 
 	return (
 		<div className="add-user-container">
 			<form>
-				<div className="name-container">
-					<TextFieldInput
-						// onChange={(e) =>
-						// 	setUser((prev, e) => ({
-						// 		...prev,
-						// 		firstName : e.target.value
-						// 	}))}
-						// onChange={(e) => setFirstName(e.target.value)}
-						onChange={(e) => updateUser('firstName', e.target.value)}
-						id="first-name"
-						label="First Name"
-						name="first-name"
-						value={user.firstName}
+				<div className="form-section">
+					<h3 className="form-section-title">Visit Type</h3>
+					<div className="row-space-between">
+						<CheckboxInput
+							onClick={(e) => setHasMinors(false)}
+							id="email-consent"
+							name="main-info"
+							type="radio"
+							label="Adult"
+							value="valueName"
+						/>{' '}
+						<CheckboxInput
+							onClick={(e) => setHasMinors(true)}
+							id="email-consent2"
+							name="main-info"
+							type="radio"
+							label="Adult With Minor"
+							value="valueName"
+						/>{' '}
+						<CheckboxInput
+							onClick={(e) => setHasMinors(false)}
+							id="email-consent3"
+							name="main-info"
+							type="radio"
+							label="Volunteer"
+							value="valueName"
+						/>
+					</div>
+				</div>
+				{hasMinors ? minorContainer : ''}
+				<div className="form-section">
+					<h3 className="form-section-title">Your Information</h3>
+					<div className="name-container">
+						<TextFieldInput
+							onChange={(e) => updateUser('firstName', e.target.value)}
+							id="first-name"
+							label="First Name"
+							name="first-name"
+							value={user.firstName}
+						/>
+						<TextFieldInput
+							onChange={(e) => updateUser('lastName', e.target.value)}
+							id="last-name"
+							label="Last Name"
+							name="last-name"
+							value={user.lastName}
+						/>
+					</div>
+					<DobPicker
+						setYear={(e) => updateUser('dob_year', e.target.value)}
+						setMonth={(e) => updateUser('dob_month', e.target.value)}
+						setDay={(e) => updateUser('dob_day', e.target.value)}
 					/>
 					<TextFieldInput
-						onChange={(e) => updateUser('lastName', e.target.value)}
-						id="last-name"
-						label="Last Name"
-						name="last-name"
-						value={user.lastName}
+						onChange={(e) => updateUser('email', e.target.value)}
+						id="email-address"
+						label="Email Address"
+						name="email-address"
+						value={user.email}
 					/>
 				</div>
-				<DobPicker
-					setYear={(e) => updateUser('dob_year', e.target.value)}
-					setMonth={(e) => updateUser('dob_month', e.target.value)}
-					setDay={(e) => updateUser('dob_day', e.target.value)}
-				/>
-				<TextFieldInput
-					onChange={(e) => updateUser('email', e.target.value)}
-					id="email-address"
-					label="Email Address"
-					name="email-address"
-					value={user.email}
-				/>
-				<CheckboxInput
-					id="email-consent"
-					label="Check to receive information, news, and discounts by e-mail."
-					value="valueName"
-					text="Check to receive information, news, and discounts by e-mail."
-				/>
-				<ElectronicSignature updateUrl={updateUrl} />
+				<div className="form-section">
+					<h3 className="form-section-title">Disclaimer</h3>
+					<Disclaimer />
+				</div>
+
+				<div className="form-section">
+					<h3 className="form-section-title">Electronic Signature</h3>
+					<ElectronicSignature updateUrl={updateUrl} />
+				</div>
 			</form>
 			<button onClick={handleSubmit} className="submit-btn">
 				Submit

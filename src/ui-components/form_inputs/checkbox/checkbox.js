@@ -2,11 +2,12 @@ import React from 'react';
 import './checkbox.css';
 import '../sharedInputsCss/sharedInputs.css';
 
-const CheckboxInput = ({ id, label, text, isChecked }) => {
+const CheckboxInput = ({ id, label, type, text, name, isChecked, onClick }) => {
 	return (
-		<div className="input-container checkbox-container">
-			<input className="checkbox-input" type="checkbox" id={id} name={id} />
+		<div onClick={onClick} className="input-container checkbox-container">
 			<label className="checkbox-label" htmlFor={id}>
+				<input className="checkbox-input" type={type} id={id} name={name} />
+				<span className="checkmark" />
 				{label}
 			</label>
 		</div>

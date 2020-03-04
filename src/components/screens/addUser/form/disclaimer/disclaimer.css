@@ -1,0 +1,7 @@
+.disclaimer-wrapper {
+	max-height: 200px;
+	overflow-y: auto;
+	text-align: left;
+	border: 1px solid rgb(187, 187, 187);
+	padding: 15px;
+}
