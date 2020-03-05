@@ -21,12 +21,10 @@ const AddUserscreen = (props) => {
 		email     : ''
 	};
 	let [ user, setUser ] = useState(userD);
+
 	let [ hasMinors, setHasMinors ] = useState(false);
-	// let [ lastName, setLastName ] = useState('');
-	// const [ dob_year, setDob_year ] = useState('');
-	// const [ dob_month, setDob_month ] = useState('');
-	// const [ dob_day, setDob_day ] = useState('');
-	// const [ email, setEmail ] = useState('');
+	let [ numOfMinors, setNumOfMinors ] = useState(0);
+	let [ minorList, setMinorList ] = useState(0);
 	const [ dataUrl, setDataUrl ] = useState('');
 
 	let ENDPOINT = 'http://localhost:5000/add-user';
@@ -66,16 +64,23 @@ const AddUserscreen = (props) => {
 		console.log('update url');
 	};
 
-	let addMinor = () => {};
+	let updateNumOfMinors = () => {};
+
+	useEffect(
+		(updateUser) => {
+			let num = Number(numOfMinors) < 1 ? 0 : Number(numOfMinors) - 1;
+			let minors = Array.from(Array(num)).map((x, i) => <Minor onChange={updateUser} />);
+
+			setMinorList(minors);
+		},
+		[ numOfMinors ]
+	);
 
 	let minorContainer = (
 		<div className="form-section">
 			<h3 className="form-section-title">Minors</h3>
 			<Minor onChange={updateUser} />
-
-			{/* <div className="add-minor-container">
-				<div className="add-minor-btn">Add Additional Minor +</div>
-			</div> */}
+			{minorList}
 		</div>
 	);
 
@@ -109,22 +114,25 @@ const AddUserscreen = (props) => {
 							label="Adult With Minor(s)"
 							value="valueName"
 						/>
-
-						{hasMinors ? 						<DropDownInput
-				onChange={props.setDay}
-				id="num-of-minors"
-				label="Number of Minors"
-				defaultValue="- Number of Minors -"
-				startValue="1"
-				endValue="14"
-			/> : ''}
-						
+						{hasMinors ? (
+							<DropDownInput
+								onChange={(e) => setNumOfMinors(e.target.value)}
+								id="num-of-minors"
+								label="Number of Minors"
+								defaultValue="- Number of Minors -"
+								startValue="1"
+								endValue="14"
+							/>
+						) : (
+							''
+						)}
 					</div>
 				</div>
-				{hasMinors ? minorContainer : ''}
+				{numOfMinors >= 1 && hasMinors ? minorContainer : ''}
+
 				<div className="form-section">
-					<h3 className="form-section-title">Your Information</h3>
-					<div className="name-container">
+					<h3 className="form-section-title">Name</h3>
+					<div className="grid__2-col">
 						<TextFieldInput
 							onChange={(e) => updateUser('firstName', e.target.value)}
 							id="first-name"
@@ -140,11 +148,6 @@ const AddUserscreen = (props) => {
 							value={user.lastName}
 						/>
 					</div>
-					<DobPicker
-						setYear={(e) => updateUser('dob_year', e.target.value)}
-						setMonth={(e) => updateUser('dob_month', e.target.value)}
-						setDay={(e) => updateUser('dob_day', e.target.value)}
-					/>
 					<TextFieldInput
 						onChange={(e) => updateUser('email', e.target.value)}
 						id="email-address"
@@ -153,6 +156,11 @@ const AddUserscreen = (props) => {
 						value={user.email}
 					/>
 				</div>
+				<div className="form-section">
+					<h3 className="form-section-title">Birthday</h3>
+					<DobPicker updateUser={updateUser} />
+				</div>
+
 				<div className="form-section">
 					<h3 className="form-section-title">Disclaimer</h3>
 					<Disclaimer />
@@ -171,3 +179,11 @@ const AddUserscreen = (props) => {
 };
 
 export default AddUserscreen;
+
+// const FormSection = (props) => {
+// 	return (
+// 		<div className="form-section">
+// 			<h3 className="form-section-title">Name</h3>
+// 		</div>
+// 	);
+// };

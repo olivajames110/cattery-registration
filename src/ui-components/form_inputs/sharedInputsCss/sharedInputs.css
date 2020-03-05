@@ -1,7 +1,7 @@
 .input-container {
   display: block;
   width: 100%;
-  margin: 10px;
+  margin: 10px 0;
   position: relative;
 }
 
@@ -9,7 +9,7 @@
 .input-container select,
 .input-container textarea {
   outline: none;
-  padding: 19.5px 10px 10px 5px;
+  padding: 19.5px 10px 6px 5px;
   border: none;
   border-bottom: 2px solid rgba(202, 200, 200, 0.65);
   border-radius: 2px;
@@ -19,6 +19,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
+  color: #4d4c4c;
   background-color: #ffffff;
 }
 
@@ -76,45 +77,6 @@
 .input-container select:focus + .input-label,
 .input-container select:not(:placeholder-shown) + .input-label {
   bottom: 30px;
-}
-
-.input-container input,
-.input-container select,
-.input-container textarea {
-  outline: none;
-  padding: 19.5px 10px 10px 5px;
-  border: none;
-  border-bottom: 2px solid rgba(202, 200, 200, 0.65);
-  border-radius: 2px;
-  margin-top: 5px;
-  font-family: Open Sans, sans-serif;
-  width: 100%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-}
-
-.input-container input::-webkit-input-placeholder,
-.input-container select::-webkit-input-placeholder,
-.input-container textarea::-webkit-input-placeholder {
-  opacity: 0;
-}
-
-.input-container input:-ms-input-placeholder,
-.input-container select:-ms-input-placeholder,
-.input-container textarea:-ms-input-placeholder {
-  opacity: 0;
-}
-
-.input-container input::-ms-input-placeholder,
-.input-container select::-ms-input-placeholder,
-.input-container textarea::-ms-input-placeholder {
-  opacity: 0;
-}
-
-.input-container input::placeholder,
-.input-container select::placeholder,
-.input-container textarea::placeholder {
-  opacity: 0;
+  color: #5d94eb;
 }
 /*# sourceMappingURL=sharedInputs.css.map */

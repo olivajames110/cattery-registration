@@ -6,7 +6,7 @@ import DobPicker from '../../../../../ui-components/form_inputs/dobPicker/dobPic
 const Minor = ({ onChange }) => {
 	return (
 		<div className="minor-wrapper">
-			<div className="name-container">
+			<div className="grid__3-col">
 				<TextFieldInput
 					onChange={(e) => onChange('firstName', e.target.value)}
 					id="first-name"
@@ -21,12 +21,12 @@ const Minor = ({ onChange }) => {
 					name="last-name"
 					// value="{user.lastName}"
 				/>
+				<DobPicker
+					setYear={(e) => onChange('dob_year', e.target.value)}
+					setMonth={(e) => onChange('dob_month', e.target.value)}
+					setDay={(e) => onChange('dob_day', e.target.value)}
+				/>
 			</div>
-			<DobPicker
-				setYear={(e) => onChange('dob_year', e.target.value)}
-				setMonth={(e) => onChange('dob_month', e.target.value)}
-				setDay={(e) => onChange('dob_day', e.target.value)}
-			/>
 		</div>
 	);
 };

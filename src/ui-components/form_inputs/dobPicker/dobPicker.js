@@ -4,22 +4,11 @@ import './dobPicker.css';
 
 const DobPicker = (props) => {
 	return (
-		<div className="dob-picker-container">
-						<DropDownInput
-				onChange={props.setDay}
-				id="dob-day"
-				label="Day"
-				defaultValue="- Select Day -"
-				startValue="1"
-				endValue="31"
-			/>
-
-
+		<div className="grid__3-col">
 			<div className="input-container">
-				{/* <label className='input-label' htmlFor="dob-month">Month</label> */}
-				<select onChange={props.setMonth} id="dob-month" name="dob-month">
+				<select onChange={(e) => props.updateUser('dob_month', e.target.value)} id="dob-month" name="dob-month">
 					<option value="default-value" disabled selected>
-						- Select Month -
+						- Month -
 					</option>
 					<option value="January"> January </option>
 					<option value="February"> February </option>
@@ -35,11 +24,19 @@ const DobPicker = (props) => {
 					<option value="December"> December </option>
 				</select>
 			</div>
-						<DropDownInput
-				onChange={props.setYear}
+			<DropDownInput
+				onChange={(e) => props.updateUser('dob_day', e.target.value)}
+				id="dob-day"
+				label="Day"
+				defaultValue="- Day -"
+				startValue="1"
+				endValue="31"
+			/>
+			<DropDownInput
+				onChange={(e) => props.updateUser('dob_year', e.target.value)}
 				id="dob-year"
 				label="Year"
-				defaultValue="- Select Year -"
+				defaultValue="- Year -"
 				startValue="1920"
 				endValue="2020"
 				reverseOrder={true}

@@ -1,5 +1,4 @@
 .checkbox-container {
-
 	input {
 		// position: absolute;
 		display: none;
@@ -14,7 +13,7 @@
 	}
 
 	input:checked ~ .checkmark {
-		background-color: #616c70;
+		background-color: #5d94eb;
 	}
 	input:checked ~ .checkmark:after {
 		opacity: 1;

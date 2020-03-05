@@ -1,5 +1,7 @@
 .name-container {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 30px;
 }
 
 .form-section {
@@ -18,11 +20,11 @@
 
 .minor-wrapper {
 	/* border: 1px solidrgb(233, 232, 231); */
-    margin: 4px 25px;
-    /* padding: 5px 0; */
-    border-left: 1px solid;
-    padding-left: 30px;
-    padding-bottom: 10px;
+	margin: 0 25px;
+	padding: 10px 0;
+	border-left: 1px solid;
+	padding-left: 30px;
+	padding-bottom: 10px;
 }
 
 .add-minor-container {
@@ -44,17 +46,21 @@
 	background-color: #4e5658;
 }
 
-.num-of-minors {
+#num-of-minors {
 	width: 200px;
+	margin: 0;
+	padding: 5px;
+}
+#num-of-minors select {
+	text-align: center;
 }
 
 .visit-type-input-container {
-    display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 }
-.visit-type-input-container .checkbox-container{
-	margin-right: 40px;
-	
+.visit-type-input-container .checkbox-container {
+	/* margin-right: 40px; */
 }
 
 .submit-btn {
@@ -67,4 +73,3 @@
 	background-color: #5d94eb;
 	color: #ffffff;
 }
-
