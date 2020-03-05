@@ -1,7 +1,7 @@
 .app-switcher-container {
 	// width: 500px;
-	display: inline-block;
-	margin: 0 auto;
+	display: flex;
+	justify-content: center;
 }
 
 .app-switcher-wrapper {

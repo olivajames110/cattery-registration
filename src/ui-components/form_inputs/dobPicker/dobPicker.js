@@ -24,7 +24,7 @@ const DobPicker = (props) => {
 				endValue="31"
 			/>
 			<div className="input-container">
-				<label htmlFor="dob-month">Month</label>
+				<label className='input-label' htmlFor="dob-month">Month</label>
 				<select onChange={props.setMonth} id="dob-month" name="dob-month">
 					<option value="default-value" disabled selected>
 						- Select Month -

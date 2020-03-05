@@ -10,8 +10,6 @@ function App() {
 
 	return (
 		<div className="App">
-			<header className="app-header" />
-
 			<div className="app-switcher-container">
 				<div onClick={() => setScreen('form')} id="app-switcher_form" className="app-switcher-wrapper">
 					Form

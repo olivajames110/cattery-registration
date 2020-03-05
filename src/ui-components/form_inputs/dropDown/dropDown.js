@@ -10,15 +10,16 @@ const DropDownInput = ({ id, label, className, startValue, endValue, defaultValu
 
 	return (
 		<div className={`input-container ${className}`}>
-			<label htmlFor={`${id}`} className={`${className}`}>
-				{`${label}`}
-			</label>
+			
 			<select onChange={onChange} id={`${id}`} name={`${id}`}>
 				<option value="default-value" disabled selected>
 					{defaultValue}
 				</option>
 				{options}
 			</select>
+			<label htmlFor={`${id}`} className={`input-label ${className}`}>
+				{`${label}`}
+			</label>
 		</div>
 	);
 };

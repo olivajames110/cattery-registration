@@ -5,8 +5,8 @@ import '../sharedInputsCss/sharedInputs.css';
 const TextFieldInput = ({ label, id, style, onChange, className, value }) => {
 	return (
 		<div className="input-container">
-			<label htmlFor={id}>{label}</label>
-			<input onChange={onChange} style={style} id={id} className={className} type="text" value={value} />
+			<input onChange={onChange} style={style} id={id} placeholder={label} className={className} autocomplete="off" type="text" value={value} />
+			<label className='input-label' htmlFor={id}>{label}</label>
 		</div>
 	);
 };
