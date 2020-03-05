@@ -17,9 +17,12 @@
 }
 
 .minor-wrapper {
-	background-color: rgb(233, 232, 231);
-	margin: 15px 0;
-	padding: 5px 0;
+	/* border: 1px solidrgb(233, 232, 231); */
+    margin: 4px 25px;
+    /* padding: 5px 0; */
+    border-left: 1px solid;
+    padding-left: 30px;
+    padding-bottom: 10px;
 }
 
 .add-minor-container {
@@ -40,3 +43,28 @@
 .add-minor-btn:hover {
 	background-color: #4e5658;
 }
+
+.num-of-minors {
+	width: 200px;
+}
+
+.visit-type-input-container {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+}
+.visit-type-input-container .checkbox-container{
+	margin-right: 40px;
+	
+}
+
+.submit-btn {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 65px;
+	font-size: 20px;
+	background-color: #5d94eb;
+	color: #ffffff;
+}
+

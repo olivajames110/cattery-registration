@@ -12,14 +12,14 @@ const Minor = ({ onChange }) => {
 					id="first-name"
 					label="First Name"
 					name="first-name"
-					value="{user.firstName}"
+					// value="{user.firstName}"
 				/>
 				<TextFieldInput
 					onChange={(e) => onChange('lastName', e.target.value)}
 					id="last-name"
 					label="Last Name"
 					name="last-name"
-					value="{user.lastName}"
+					// value="{user.lastName}"
 				/>
 			</div>
 			<DobPicker

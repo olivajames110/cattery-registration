@@ -5,17 +5,7 @@ import './dobPicker.css';
 const DobPicker = (props) => {
 	return (
 		<div className="dob-picker-container">
-			<DropDownInput
-				onChange={props.setYear}
-				id="dob-year"
-				label="Year"
-				defaultValue="- Select Year -"
-				startValue="1920"
-				endValue="2020"
-				reverseOrder={true}
-				size="10"
-			/>
-			<DropDownInput
+						<DropDownInput
 				onChange={props.setDay}
 				id="dob-day"
 				label="Day"
@@ -23,8 +13,10 @@ const DobPicker = (props) => {
 				startValue="1"
 				endValue="31"
 			/>
+
+
 			<div className="input-container">
-				<label className='input-label' htmlFor="dob-month">Month</label>
+				{/* <label className='input-label' htmlFor="dob-month">Month</label> */}
 				<select onChange={props.setMonth} id="dob-month" name="dob-month">
 					<option value="default-value" disabled selected>
 						- Select Month -
@@ -43,6 +35,16 @@ const DobPicker = (props) => {
 					<option value="December"> December </option>
 				</select>
 			</div>
+						<DropDownInput
+				onChange={props.setYear}
+				id="dob-year"
+				label="Year"
+				defaultValue="- Select Year -"
+				startValue="1920"
+				endValue="2020"
+				reverseOrder={true}
+				size="10"
+			/>
 		</div>
 	);
 };

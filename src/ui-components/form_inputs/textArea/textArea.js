@@ -9,6 +9,7 @@ const TextAreaInput = ({ className, label, id }) => {
 				{`${label}`}
 				<textarea id={`${id}`} />
 			</label>
+			<div className="input-fill"></div>
 		</div>
 	);
 };

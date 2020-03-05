@@ -12,14 +12,16 @@ const DropDownInput = ({ id, label, className, startValue, endValue, defaultValu
 		<div className={`input-container ${className}`}>
 			
 			<select onChange={onChange} id={`${id}`} name={`${id}`}>
-				<option value="default-value" disabled selected>
+			<option disabled  value=''></option>
+				<option  disabled selected>
 					{defaultValue}
 				</option>
 				{options}
 			</select>
-			<label htmlFor={`${id}`} className={`input-label ${className}`}>
+			{/* <label htmlFor={`${id}`} className={`input-label ${className}`}>
 				{`${label}`}
-			</label>
+			</label> */}
+			<div className="input-fill"></div>
 		</div>
 	);
 };

@@ -73,9 +73,9 @@ const AddUserscreen = (props) => {
 			<h3 className="form-section-title">Minors</h3>
 			<Minor onChange={updateUser} />
 
-			<div className="add-minor-container">
+			{/* <div className="add-minor-container">
 				<div className="add-minor-btn">Add Additional Minor +</div>
-			</div>
+			</div> */}
 		</div>
 	);
 
@@ -84,7 +84,15 @@ const AddUserscreen = (props) => {
 			<form>
 				<div className="form-section">
 					<h3 className="form-section-title">Visit Type</h3>
-					<div className="row-space-between">
+					<div className="visit-type-input-container">
+						<CheckboxInput
+							onClick={(e) => setHasMinors(false)}
+							id="email-consent3"
+							name="main-info"
+							type="radio"
+							label="Volunteer"
+							value="valueName"
+						/>
 						<CheckboxInput
 							onClick={(e) => setHasMinors(false)}
 							id="email-consent"
@@ -98,17 +106,19 @@ const AddUserscreen = (props) => {
 							id="email-consent2"
 							name="main-info"
 							type="radio"
-							label="Adult With Minor"
-							value="valueName"
-						/>{' '}
-						<CheckboxInput
-							onClick={(e) => setHasMinors(false)}
-							id="email-consent3"
-							name="main-info"
-							type="radio"
-							label="Volunteer"
+							label="Adult With Minor(s)"
 							value="valueName"
 						/>
+
+						{hasMinors ? 						<DropDownInput
+				onChange={props.setDay}
+				id="num-of-minors"
+				label="Number of Minors"
+				defaultValue="- Number of Minors -"
+				startValue="1"
+				endValue="14"
+			/> : ''}
+						
 					</div>
 				</div>
 				{hasMinors ? minorContainer : ''}
