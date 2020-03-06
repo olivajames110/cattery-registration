@@ -1,4 +1,5 @@
 import React from 'react';
+import './minor.css';
 
 import TextFieldInput from '../../../../../ui-components/form_inputs/textField/textField';
 import DobPicker from '../../../../../ui-components/form_inputs/dobPicker/dobPicker';
@@ -6,7 +7,8 @@ import DobPicker from '../../../../../ui-components/form_inputs/dobPicker/dobPic
 const Minor = ({ onChange }) => {
 	return (
 		<div className="minor-wrapper">
-			<div className="grid__3-col">
+			<h4 className="sub-section_header">Minor's Information</h4>
+			<div className="sub-section_minor-row grid__3-col">
 				<TextFieldInput
 					onChange={(e) => onChange('firstName', e.target.value)}
 					id="first-name"

@@ -12,13 +12,13 @@ import './form.css';
 
 const AddUserscreen = (props) => {
 	let userD = {
-		firstName : '',
-		lastName  : '',
-		dataUrl   : '',
-		dob_year  : '',
-		dob_month : '',
-		dob_day   : '',
-		email     : ''
+		firstName: '',
+		lastName: '',
+		dataUrl: '',
+		dob_year: '',
+		dob_month: '',
+		dob_day: '',
+		email: ''
 	};
 	let [ user, setUser ] = useState(userD);
 
@@ -38,13 +38,13 @@ const AddUserscreen = (props) => {
 		});
 
 		setUser({
-			firstName : '',
-			lastName  : '',
-			dataUrl   : '',
-			dob_year  : '',
-			dob_month : '',
-			dob_day   : '',
-			email     : ''
+			firstName: '',
+			lastName: '',
+			dataUrl: '',
+			dob_year: '',
+			dob_month: '',
+			dob_day: '',
+			email: ''
 		});
 	};
 
@@ -53,7 +53,7 @@ const AddUserscreen = (props) => {
 		let v = value;
 		let updatedUser = {
 			...user,
-			[k] : v
+			[k]: v
 		};
 		setUser(updatedUser);
 	};

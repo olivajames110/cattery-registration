@@ -12,53 +12,20 @@
 	margin-bottom: 5px;
 	text-align: left;
 }
+
 .row-space-between {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 }
 
-.minor-wrapper {
-	/* border: 1px solidrgb(233, 232, 231); */
-	margin: 0 25px;
-	padding: 10px 0;
-	border-left: 1px solid;
-	padding-left: 30px;
-	padding-bottom: 10px;
-}
 
-.add-minor-container {
-	display: flex;
-	flex-direction: row-reverse;
-}
-
-.add-minor-btn {
-	background-color: #616c70;
-	color: white;
-	padding: 10px;
-	width: 195px;
-	border-radius: 2px;
-	cursor: pointer;
-	transition: 200ms;
-}
-
-.add-minor-btn:hover {
-	background-color: #4e5658;
-}
-
-#num-of-minors {
-	width: 200px;
-	margin: 0;
-	padding: 5px;
-}
-#num-of-minors select {
-	text-align: center;
-}
 
 .visit-type-input-container {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 }
+
 .visit-type-input-container .checkbox-container {
 	/* margin-right: 40px; */
 }
