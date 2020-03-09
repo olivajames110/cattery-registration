@@ -1,7 +1,23 @@
 .disclaimer-wrapper {
-	max-height: 150px;
+	/* max-height: 150px; */
 	overflow-y: auto;
 	text-align: left;
 	border: 1px solid rgb(187, 187, 187);
-	padding: 15px;
+	padding: 10px;
+	font-size: 14px;
+	border-radius: 2px;
+	transition: 400ms;
+}
+
+.disclaimer-section {
+	margin-bottom: 15px;
+}
+
+.expand-button {
+	text-align: right;
+	font-size: 14px;
+	padding-top: 10px;
+	text-decoration: underline;
+	/* padding-right: 25px; */
+	cursor: pointer;
 }

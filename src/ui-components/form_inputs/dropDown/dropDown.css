@@ -1,1 +1,42 @@
-/* No CSS *//*# sourceMappingURL=dropDown.css.map */
+.dropdown-input {
+  -webkit-transition: 220ms;
+  transition: 220ms;
+}
+
+.dropdown-input .dropdown-label {
+  display: block;
+  font-family: Open Sans, sans-serif;
+  font-size: 13px;
+  color: #4d4c4c;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  position: absolute;
+  left: 5px;
+}
+
+.dropdown-input .dropdown-label_active {
+  bottom: 30px;
+  color: #1a62d5;
+  font-weight: 900;
+}
+
+.dropdown-input .arrow-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-42%);
+          transform: translateY(-42%);
+  -webkit-transition: 220ms;
+  transition: 220ms;
+}
+
+.dropdown-input svg {
+  -webkit-transition: 220ms;
+  transition: 220ms;
+}
+
+.dropdown-input select:focus svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+/*# sourceMappingURL=dropDown.css.map */

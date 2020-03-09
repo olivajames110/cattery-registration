@@ -1,11 +1,12 @@
 .electronic-signature-container {
   background-color: white;
   margin-top: 10px;
+  margin-bottom: -30px;
 }
 
 .additional-text-container {
   border-top: 1px solid #d6d6d6;
-  width: 90%;
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0 auto;
@@ -16,6 +17,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
+  -webkit-transform: translateY(-80px);
+          transform: translateY(-80px);
 }
 
 .additional-text-container:after, .additional-text-container:before {

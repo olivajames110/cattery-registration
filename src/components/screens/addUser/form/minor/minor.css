@@ -2,7 +2,7 @@
   position: relative;
   margin: 0 25px;
   padding: 10px 0;
-  border-left: 1px solid #5c93eb;
+  border-left: 1px solid #1a62d5;
   padding-left: 30px;
   padding-bottom: 10px;
 }
@@ -14,13 +14,20 @@
           transform: translate(5px, 8px);
 }
 
-.sub-section_minor-row:before {
-  content: '2';
+.sub-section_minor-row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  grid-gap: 30px;
+}
+
+.num-circle {
   position: absolute;
   top: 37%;
   left: -21.5px;
   color: white;
-  background: #5c93eb;
+  background: #1a62d5;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -61,7 +68,6 @@
 }
 
 #num-of-minors {
-  width: 200px;
   margin: 0;
   padding: 5px;
 }

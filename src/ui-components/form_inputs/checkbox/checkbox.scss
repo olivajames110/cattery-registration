@@ -13,7 +13,8 @@
 	}
 
 	input:checked ~ .checkmark {
-		background-color: #5d94eb;
+		background-color: #1a62d5;
+		border: none;
 	}
 	input:checked ~ .checkmark:after {
 		opacity: 1;

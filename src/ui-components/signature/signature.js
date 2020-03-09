@@ -41,7 +41,7 @@ const ElectronicSignature = (props) => {
 					onEnd={createImage}
 					ref={(ref) => (sigCanvas = ref)}
 					penColor="#616c70"
-					canvasProps={{ width: containerWidth, height: 200, className: 'sigCanvas' }}
+					canvasProps={{ width: containerWidth, height: 400, className: 'sigCanvas' }}
 				/>
 				<div className="additional-text-container">
 					<button onClick={clear} className="clear-btn">

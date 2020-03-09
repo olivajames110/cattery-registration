@@ -3,13 +3,29 @@ import DropDownInput from '../dropDown/dropDown';
 import './dobPicker.css';
 
 const DobPicker = (props) => {
+	const [ labelIsActive, setLabelIsActive ] = useState(false);
+	const activeLabel = {
+		bottom     : '30px',
+		color      : '#1A62D5',
+		fontWeight : 900
+	};
+
+	const nonActiveLabel = {
+		bottom : '13px'
+		// left   : '5px'
+	};
 	return (
 		<div className="grid__3-col">
-			<div className="input-container">
-				<select onChange={(e) => props.updateUser('dob_month', e.target.value)} id="dob-month" name="dob-month">
-					<option value="default-value" disabled selected>
-						- Month -
-					</option>
+			<div className="input-container dropdown-input">
+				<select
+					onChange={(e) => {
+						props.updateUser('dob_month', e.target.value);
+						setLabelIsActive(true);
+					}}
+					id="dob-month"
+					name="dob-month"
+				>
+					<option style={{ display: 'none' }} disabled selected />
 					<option value="January"> January </option>
 					<option value="February"> February </option>
 					<option value="March"> March </option>
@@ -23,6 +39,10 @@ const DobPicker = (props) => {
 					<option value="November"> November </option>
 					<option value="December"> December </option>
 				</select>
+				<span style={labelIsActive ? activeLabel : nonActiveLabel} className="dropdown-label">
+					{' '}
+					Month
+				</span>
 			</div>
 			<DropDownInput
 				onChange={(e) => props.updateUser('dob_day', e.target.value)}

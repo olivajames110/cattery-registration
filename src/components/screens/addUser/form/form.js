@@ -12,13 +12,13 @@ import './form.css';
 
 const AddUserscreen = (props) => {
 	let userD = {
-		firstName: '',
-		lastName: '',
-		dataUrl: '',
-		dob_year: '',
-		dob_month: '',
-		dob_day: '',
-		email: ''
+		firstName : '',
+		lastName  : '',
+		dataUrl   : '',
+		dob_year  : '',
+		dob_month : '',
+		dob_day   : '',
+		email     : ''
 	};
 	let [ user, setUser ] = useState(userD);
 
@@ -38,13 +38,13 @@ const AddUserscreen = (props) => {
 		});
 
 		setUser({
-			firstName: '',
-			lastName: '',
-			dataUrl: '',
-			dob_year: '',
-			dob_month: '',
-			dob_day: '',
-			email: ''
+			firstName : '',
+			lastName  : '',
+			dataUrl   : '',
+			dob_year  : '',
+			dob_month : '',
+			dob_day   : '',
+			email     : ''
 		});
 	};
 
@@ -53,7 +53,7 @@ const AddUserscreen = (props) => {
 		let v = value;
 		let updatedUser = {
 			...user,
-			[k]: v
+			[k] : v
 		};
 		setUser(updatedUser);
 	};
@@ -68,8 +68,11 @@ const AddUserscreen = (props) => {
 
 	useEffect(
 		(updateUser) => {
-			let num = Number(numOfMinors) < 1 ? 0 : Number(numOfMinors) - 1;
-			let minors = Array.from(Array(num)).map((x, i) => <Minor onChange={updateUser} />);
+			let num = Number(numOfMinors) < 1 ? 0 : Number(numOfMinors);
+			let minors = Array.from(Array(num)).map((x, i) => {
+				console.log(i, x);
+				return <Minor circleNum={Number(i) + 1} onChange={updateUser} />;
+			});
 
 			setMinorList(minors);
 		},
@@ -79,7 +82,7 @@ const AddUserscreen = (props) => {
 	let minorContainer = (
 		<div className="form-section">
 			<h3 className="form-section-title">Minors</h3>
-			<Minor onChange={updateUser} />
+
 			{minorList}
 		</div>
 	);
@@ -131,7 +134,7 @@ const AddUserscreen = (props) => {
 				{numOfMinors >= 1 && hasMinors ? minorContainer : ''}
 
 				<div className="form-section">
-					<h3 className="form-section-title">Name</h3>
+					<h3 className="form-section-title">{!hasMinors ? 'Name' : 'Parent/Guardian'}</h3>
 					<div className="grid__2-col">
 						<TextFieldInput
 							onChange={(e) => updateUser('firstName', e.target.value)}
@@ -162,7 +165,7 @@ const AddUserscreen = (props) => {
 				</div>
 
 				<div className="form-section">
-					<h3 className="form-section-title">Disclaimer</h3>
+					<h3 className="form-section-title">Waiver, Release, Hold Harmless And Indemnification Agreement</h3>
 					<Disclaimer />
 				</div>
 
