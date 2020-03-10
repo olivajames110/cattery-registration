@@ -29,9 +29,12 @@ const Table = (props) => {
 				<span class="table-item-cell" id="name">
 					<span id="first-name"> {user.firstName}</span>
 					<span id="first-name"> {user._id}</span>
+					<ul>
+						<li>{user.visitType}</li>
+					</ul>
 				</span>
 				<span class="table-item-cell" id="number-of-minors">
-				  <img src={user.dataUrl} width='80px' height='30'/>
+					<img src={user.dataUrl} width="80px" height="30" />
 				</span>
 				<span class="table-item-cell" id="date-signed">
 					{date}
@@ -39,7 +42,7 @@ const Table = (props) => {
 				<span class="table-item-cell" id="waiver-type">
 					Cattery
 				</span>
-				<span onClick={()=>props.deleteUser(user._id)} class="table-item-cell" id="pdf">
+				<span onClick={() => props.deleteUser(user._id)} class="table-item-cell" id="pdf">
 					Delete
 				</span>
 			</div>

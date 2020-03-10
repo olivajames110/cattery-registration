@@ -7,22 +7,47 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 import './dropDown.css';
 
-const DropDownInput = ({ id, label, className, startValue, endValue, defaultValue, reverseOrder, size, onChange }) => {
+const DropDownInput = ({ id, label, className, startValue, endValue, nameList, reverseOrder, size, onChange }) => {
 	const [ labelIsActive, setLabelIsActive ] = useState(false);
+	// const [ options, setOptions ] = useState('');
+	let options;
+	let months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
 
 	let numOfIterations = Math.abs(startValue - endValue);
-	let options = Array.from(Array(numOfIterations)).map((x, i) => (
-		<option value={i + 1}> {reverseOrder === true ? Number(endValue) - i : Number(startValue) + i} </option>
-	));
+
+	if (!nameList) {
+		options = Array.from(Array(numOfIterations)).map((x, i) => (
+			<option value={i + 1}> {reverseOrder === true ? Number(endValue) - i : Number(startValue) + i} </option>
+		));
+		// setOptions(optionsList);
+	} else {
+		options = Array.from(Array(nameList.length)).map((x, i) => <option value={i + 1}> {nameList[i]} </option>);
+		// setOptions(optionsList);
+
+		// setOptions(optionsList);
+	}
 
 	const activeLabel = {
-		bottom     : '30px',
-		color      : '#1a62d5',
-		fontWeight : 900
+		bottom: '30px',
+		color: '#1a62d5',
+		fontWeight: 900
 	};
 
 	const nonActiveLabel = {
-		bottom : '13px'
+		bottom: '13px'
 		// left   : '5px'
 	};
 
@@ -41,7 +66,6 @@ const DropDownInput = ({ id, label, className, startValue, endValue, defaultValu
 			</select>
 
 			<span style={labelIsActive ? activeLabel : nonActiveLabel} className="dropdown-label">
-				{' '}
 				{`${label}`}
 			</span>
 			<div className="arrow-icon">

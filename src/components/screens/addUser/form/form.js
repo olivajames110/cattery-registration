@@ -12,14 +12,35 @@ import './form.css';
 
 const AddUserscreen = (props) => {
 	let userD = {
-		firstName : '',
-		lastName  : '',
-		dataUrl   : '',
-		dob_year  : '',
-		dob_month : '',
-		dob_day   : '',
-		email     : ''
+		// id: 1,
+		visitType: 'String',
+		minors: [
+			{
+				id: 1,
+				firstName: 'String',
+				lastName: 'String',
+				dob_year: 'String',
+				dob_month: 'String',
+				dob_day: 'String'
+			}
+		],
+		firstName: 'String',
+		lastName: 'String',
+		dataUrl: 'String',
+		dob_year: 'String',
+		dob_month: 'String',
+		dob_day: 'String',
+		email: 'String'
 	};
+	// let userD = {
+	// 	firstName : '',
+	// 	lastName  : '',
+	// 	dataUrl   : '',
+	// 	dob_year  : '',
+	// 	dob_month : '',
+	// 	dob_day   : '',
+	// 	email     : ''
+	// };
 	let [ user, setUser ] = useState(userD);
 
 	let [ hasMinors, setHasMinors ] = useState(false);
@@ -32,19 +53,19 @@ const AddUserscreen = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(user);
-		axios.post(ENDPOINT, user).then((res) => {
+		axios.post(ENDPOINT, userD).then((res) => {
 			const newPerson = res.data;
 			console.log(newPerson);
 		});
 
 		setUser({
-			firstName : '',
-			lastName  : '',
-			dataUrl   : '',
-			dob_year  : '',
-			dob_month : '',
-			dob_day   : '',
-			email     : ''
+			firstName: '',
+			lastName: '',
+			dataUrl: '',
+			dob_year: '',
+			dob_month: '',
+			dob_day: '',
+			email: ''
 		});
 	};
 
@@ -53,7 +74,7 @@ const AddUserscreen = (props) => {
 		let v = value;
 		let updatedUser = {
 			...user,
-			[k] : v
+			[k]: v
 		};
 		setUser(updatedUser);
 	};

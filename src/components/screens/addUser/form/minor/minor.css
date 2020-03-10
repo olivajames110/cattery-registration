@@ -67,11 +67,6 @@
   background-color: #4e5658;
 }
 
-#num-of-minors {
-  margin: 0;
-  padding: 5px;
-}
-
 #num-of-minors select {
   text-align: center;
 }
