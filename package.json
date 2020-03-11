@@ -15,7 +15,8 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0",
     "react-signature-canvas": "^1.0.3",
-    "signature_pad": "^3.0.0-beta.3"
+    "signature_pad": "^3.0.0-beta.3",
+    "uniqid": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

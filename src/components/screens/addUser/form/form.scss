@@ -21,11 +21,12 @@
 
 .visit-type-input-container {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: 1fr 1fr 1fr 170px;
 	padding: 10px;
 
 	.dropdown-input {
-		transform: translateY(-15px);
+		transform: translateY(-5px);
+		margin: 0;
 	}
 }
 

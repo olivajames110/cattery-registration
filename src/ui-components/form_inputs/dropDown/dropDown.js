@@ -55,7 +55,7 @@ const DropDownInput = ({ id, label, className, startValue, endValue, nameList, r
 		<div className={`input-container dropdown-input ${className}`}>
 			<select
 				onChange={(e) => {
-					onChange(e);
+					onChange(id, e.target.value);
 					setLabelIsActive(true);
 				}}
 				id={`${id}`}

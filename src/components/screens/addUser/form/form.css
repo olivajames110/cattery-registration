@@ -28,14 +28,15 @@
 .visit-type-input-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: 1fr 1fr 1fr 170px;
+      grid-template-columns: 1fr 1fr 1fr 170px;
   padding: 10px;
 }
 
 .visit-type-input-container .dropdown-input {
-  -webkit-transform: translateY(-15px);
-          transform: translateY(-15px);
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  margin: 0;
 }
 
 .visit-type-input-container .checkbox-container {

@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
+import uniqid from 'uniqid';
+// let uniqid = require('uniqid');
 import TextFieldInput from '../../../../ui-components/form_inputs/textField/textField';
 import DropDownInput from '../../../../ui-components/form_inputs/dropDown/dropDown';
 import TextAreaInput from '../../../../ui-components/form_inputs/textArea/textArea';
@@ -11,37 +13,37 @@ import Disclaimer from './disclaimer/disclaimer';
 import './form.css';
 
 const AddUserscreen = (props) => {
-	let userD = {
-		// id: 1,
-		visitType: 'String',
-		minors: [
-			{
-				id: 1,
-				firstName: 'String',
-				lastName: 'String',
-				dob_year: 'String',
-				dob_month: 'String',
-				dob_day: 'String'
-			}
-		],
-		firstName: 'String',
-		lastName: 'String',
-		dataUrl: 'String',
-		dob_year: 'String',
-		dob_month: 'String',
-		dob_day: 'String',
-		email: 'String'
-	};
 	// let userD = {
-	// 	firstName : '',
-	// 	lastName  : '',
-	// 	dataUrl   : '',
-	// 	dob_year  : '',
-	// 	dob_month : '',
-	// 	dob_day   : '',
-	// 	email     : ''
+	// 	id: uniqid(),
+	// 	visitType: 'Adult',
+	// 	minors: [
+	// 		{
+	// 			id: 1,
+	// 			firstName: 'Ssssstring',
+	// 			lastName: 'String',
+	// 			dob_year: 'String',
+	// 			dob_month: 'String',
+	// 			dob_day: 'String'
+	// 		}
+	// 	],
+	// 	firstName: 'String',
+	// 	lastName: 'String',
+	// 	dataUrl: 'String',
+	// 	dob_year: 'String',
+	// 	dob_month: 'String',
+	// 	dob_day: 'String',
+	// 	email: 'String'
 	// };
-	let [ user, setUser ] = useState(userD);
+	// let userD = {
+	// 	firstName: '',
+	// 	lastName: '',
+	// 	dataUrl: '',
+	// 	dob_year: '',
+	// 	dob_month: '',
+	// 	dob_day: '',
+	// 	email: ''
+	// };
+	let [ user, setUser ] = useState({});
 
 	let [ hasMinors, setHasMinors ] = useState(false);
 	let [ numOfMinors, setNumOfMinors ] = useState(0);
@@ -52,8 +54,8 @@ const AddUserscreen = (props) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(user);
-		axios.post(ENDPOINT, userD).then((res) => {
+		console.log('User being sent', user);
+		axios.post(ENDPOINT, user).then((res) => {
 			const newPerson = res.data;
 			console.log(newPerson);
 		});
@@ -92,13 +94,19 @@ const AddUserscreen = (props) => {
 			let num = Number(numOfMinors) < 1 ? 0 : Number(numOfMinors);
 			let minors = Array.from(Array(num)).map((x, i) => {
 				console.log(i, x);
-				return <Minor circleNum={Number(i) + 1} onChange={updateUser} />;
+				return <Minor circleNum={Number(i) + 1} updateUser={updateUser} />;
 			});
 
 			setMinorList(minors);
+			// updateUser('visitType', 'cat visit');
 		},
 		[ numOfMinors ]
 	);
+
+	let updateVisitType = (bool, value) => {
+		setHasMinors(bool);
+		updateUser('visitType', value);
+	};
 
 	let minorContainer = (
 		<div className="form-section">
@@ -115,7 +123,7 @@ const AddUserscreen = (props) => {
 					<h3 className="form-section-title">Visit Type</h3>
 					<div className="visit-type-input-container">
 						<CheckboxInput
-							onClick={(e) => setHasMinors(false)}
+							onClick={(e) => updateVisitType(false, 'volunteer')}
 							id="email-consent3"
 							name="main-info"
 							type="radio"
@@ -123,19 +131,19 @@ const AddUserscreen = (props) => {
 							value="valueName"
 						/>
 						<CheckboxInput
-							onClick={(e) => setHasMinors(false)}
+							onClick={(e) => updateVisitType(false, 'adult')}
 							id="email-consent"
 							name="main-info"
 							type="radio"
-							label="Adult"
+							label="Cattery Entry"
 							value="valueName"
 						/>{' '}
 						<CheckboxInput
-							onClick={(e) => setHasMinors(true)}
+							onClick={(e) => updateVisitType(true, 'adultWithMinors')}
 							id="email-consent2"
 							name="main-info"
 							type="radio"
-							label="Adult With Minor(s)"
+							label="Cattery Entry With Minor(s)"
 							value="valueName"
 						/>
 						{hasMinors ? (
@@ -192,7 +200,7 @@ const AddUserscreen = (props) => {
 
 				<div className="form-section">
 					<h3 className="form-section-title">Electronic Signature</h3>
-					<ElectronicSignature updateUrl={updateUrl} />
+					<ElectronicSignature updateUser={updateUser} />
 				</div>
 			</form>
 			<button onClick={handleSubmit} className="submit-btn">
