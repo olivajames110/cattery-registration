@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './table.css';
+import TableRow from './tableRow/tableRow';
 
 const Table = (props) => {
-	let date = new Date().getDay();
 	let tableHeader = (
 		<div className="table-row-header">
 			<span class="table-item-cell" id="name">
@@ -23,35 +23,23 @@ const Table = (props) => {
 		</div>
 	);
 
-	let tableRow = (user) => {
+	let recentUser = () => {
+		let user = props.users[props.users.length - 1];
+		console.log('users: ', user);
 		return (
-			<div key={user.name} className="table-row-wrapper">
-				<span class="table-item-cell" id="name">
-					<span id="first-name"> {user.firstName}</span>
-					<span id="first-name"> {user._id}</span>
-					<ul>
-						<li>{user.visitType}</li>
-					</ul>
-				</span>
-				<span class="table-item-cell" id="number-of-minors">
-					<img src={user.dataUrl} width="80px" height="30" />
-				</span>
-				<span class="table-item-cell" id="date-signed">
-					{date}
-				</span>
-				<span class="table-item-cell" id="waiver-type">
-					Cattery
-				</span>
-				<span onClick={() => props.deleteUser(user._id)} class="table-item-cell" id="pdf">
-					Delete
-				</span>
+			<div className="recent-user">
+				<span>First Name: </span>
 			</div>
 		);
 	};
+
 	return (
 		<div className="table-container">
+			{recentUser()}
 			{tableHeader}
-			{props.users.map((user) => tableRow(user))}
+			{props.users.map((user) => (
+				<TableRow viewUser={props.viewUser} deleteUser={props.deleteUser} user={user} />
+			))}
 		</div>
 	);
 };
