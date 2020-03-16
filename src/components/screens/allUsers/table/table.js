@@ -3,6 +3,8 @@ import './table.css';
 import TableRow from './tableRow/tableRow';
 
 const Table = (props) => {
+	const [ isViewingUser, setIsViewingUser ] = useState(false);
+
 	let tableHeader = (
 		<div className="table-row-header">
 			<span class="table-item-cell" id="name">
@@ -24,11 +26,26 @@ const Table = (props) => {
 	);
 
 	let recentUser = () => {
-		let user = props.users[props.users.length - 1];
-		console.log('users: ', user);
 		return (
 			<div className="recent-user">
-				<span>First Name: </span>
+				<div className="row-container">
+					<div className="user-row">
+						<span className="primary">Name:</span> {props.currentUser.firstName}{' '}
+						{props.currentUser.lastName}
+					</div>
+					<div className="user-row">
+						<span className="primary">Visit Type:</span> {props.currentUser.visitType}
+					</div>
+					<div className="user-row">
+						<span className="primary"> Date of Birth: </span>
+						{props.currentUser.dob_month} / {props.currentUser.dob_day} / {props.currentUser.dob_year}
+					</div>
+					<div className="user-row">
+						<span className="primary">Email Address:</span>
+						{props.currentUser.email}
+					</div>
+				</div>
+				<img src={props.currentUser.dataUrl} alt="" srcset="" />
 			</div>
 		);
 	};
@@ -37,9 +54,13 @@ const Table = (props) => {
 		<div className="table-container">
 			{recentUser()}
 			{tableHeader}
-			{props.users.map((user) => (
-				<TableRow viewUser={props.viewUser} deleteUser={props.deleteUser} user={user} />
-			))}
+			{props.users.length > 1 ? (
+				props.users.map((user) => (
+					<TableRow viewUser={props.viewUser} deleteUser={props.deleteUser} user={user} />
+				))
+			) : (
+				<TableRow viewUser={props.viewUser} deleteUser={props.deleteUser} user={props.users} />
+			)}
 		</div>
 	);
 };
